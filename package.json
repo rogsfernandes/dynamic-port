@@ -1,0 +1,36 @@
+{
+  "name": "dynamic-port",
+  "version": "1.0.0",
+  "description": "NodeJS module that tells what port is free to use.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node node_modules/gulp/bin/gulp.js test",
+    "start": "node lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsfernandes/dynamic-port.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "dynamic",
+    "port",
+    "web"
+  ],
+  "author": "Rogerio Fernandes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsfernandes/dynamic-port/issues"
+  },
+  "homepage": "https://github.com/rsfernandes/dynamic-port#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
+    "mocha": "^3.3.0",
+    "mocha-multi": "^0.11.0",
+    "sinon": "^2.2.0"
+  }
+}
