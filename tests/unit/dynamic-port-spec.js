@@ -1,5 +1,11 @@
 const chai = require('chai');
-const dynamicPort = require('../../lib/index.js');
+const proxyquire = require('proxyquire');
+
+const dynamicPort = proxyquire('../../lib/index.js', {
+    'net': {
+        
+    }
+});
 
 var expect = chai.expect;
 
@@ -9,6 +15,10 @@ describe('[Unit Test] Dynamic Port', () => {
 
         it('Should not throw', () => {
             expect(() => dynamicPort.get()).not.to.throw();
+        })
+
+        it('Should get a available port', (done) => {
+
         })
 
     })

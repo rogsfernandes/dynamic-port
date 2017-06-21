@@ -3,7 +3,7 @@ const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
 
 gulp.task('test', ['pre-test'], () => {
-    gulp.src('tests/**/*.spec.js')
+    gulp.src('tests/**/*-spec.js')
         .pipe(mocha())
         // Creating the reports after tests ran
         .pipe(istanbul.writeReports())
