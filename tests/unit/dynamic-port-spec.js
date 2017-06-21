@@ -1,9 +1,27 @@
 const chai = require('chai');
 const proxyquire = require('proxyquire');
 
-const dynamicPort = proxyquire('../../lib/index.js', {
+let dynamicPort = proxyquire('../../lib/index.js', {
     'net': {
-        
+        createConnection: () => {
+            return {
+                on: (eventName, cb) => {
+                    cb();
+                }
+            };
+        },
+        createServer: () => {
+            return {
+                on: () => {
+                },
+                listen: (port, cb) => {
+                    cb();
+                },
+                close: () => {
+
+                }
+            }
+        }
     }
 });
 
@@ -18,13 +36,11 @@ describe('[Unit Test] Dynamic Port', () => {
         })
 
         it('Should get a available port', (done) => {
-
+            dynamicPort.get(9999).then(port => {
+                expect(port).to.be.a('Number');
+                expect(port.toString().length).to.equal(4);
+                done();
+            })
         })
-
     })
-
-    describe('Method = test()', () => {
-
-    })
-
 })
